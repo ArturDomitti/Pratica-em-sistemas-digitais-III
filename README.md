@@ -89,38 +89,3 @@ BEGIN
 
 END Behavioral;
 ```
-
-T FLIP-FLOP
-```
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
-
-ENTITY t_flip_flop is
-	PORT (T, Clk, clear: IN STD_LOGIC;
-			Q, Qn: OUT STD_LOGIC);
-END t_flip_flop;
-
-architecture Behavioral of t_flip_flop is
-signal qb: STD_LOGIC;
-
-begin
-	
-	
-	process(T, Clk)
-	begin
-
-		if clear = '1' THEN
-			qb <= '0';
-			
-		ELSIF rising_edge(Clk) THEN
-			if T = '1' THEN
-				qb <= NOT qb;
-			END IF;
-		END IF;
-		
-		Q <= qb;
-		Qn <= not qb;
-	end process;
-
-end Behavioral;
-```
